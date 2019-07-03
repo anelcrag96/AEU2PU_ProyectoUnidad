@@ -1,7 +1,7 @@
 {
   "name": "ProyectoU2",
   "version": "1.0.0",
-  "description": "",
+  "description": "Proyecto Final de la Unidad No.2 de Aplicaciones Empresariales",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,6 +10,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mongoose": "^5.6.2"
-  }
+    "mongoose": "^5.6.3"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anelcrag96/AEU2PU_ProyectoUnidad.git"
+  },
+  "bugs": {
+    "url": "https://github.com/anelcrag96/AEU2PU_ProyectoUnidad/issues"
+  },
+  "homepage": "https://github.com/anelcrag96/AEU2PU_ProyectoUnidad#readme"
 }

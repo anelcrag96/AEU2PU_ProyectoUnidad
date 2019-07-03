@@ -1,20 +1,20 @@
 async function createBrand(brand, Brand) {
-    var brandCreated=await Brand.create(brand)
+    var brandCreated = await Brand.create(brand)
         .then((data) => {
-            console.log("Registrado con éxito");
+            console.log("Marca registrada con éxito");
             return data;
         })
         .catch((error) => {
-            console.log("Error");
+            console.log("Error al crear la marca");
             return error;
         });
     return brandCreated;
 }
 
 async function findBrand(Brand) {
-    var brandFinded=await Brand.find()
+    var brandFinded = await Brand.find()
         .then((data) => {
-            console.log("Consulta realizada con éxito");
+            console.log("Marca consultada con éxito");
             return data;
         })
         .catch((error) => {
@@ -27,7 +27,7 @@ async function findBrand(Brand) {
 async function findBrandById(id, Brand) {
     var brandByIdFinded = await Brand.findById(_id)
         .then((data) => {
-            console.log("Consulta por ID realizada con éxito");
+            console.log("Marca por ID consultada con éxito");
             return data;
         })
         .catch((error) => {

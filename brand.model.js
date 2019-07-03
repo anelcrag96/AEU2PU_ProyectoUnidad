@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 module.exports = new mongoose.Schema({
-    name: {
+    brand: {
         type: String,
         required: true
     }
