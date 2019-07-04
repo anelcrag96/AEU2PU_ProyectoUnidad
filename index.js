@@ -163,10 +163,10 @@ async function deleteClient(_id) {
 //-----------------------------------VENTA-----------------------------------
 async function createSale() {
     var sale = {
-        date:"2019/07/03",
-        subtotal:22,
-        iva:16,
-        total:26
+        date: "2019/07/03",
+        subtotal: 22,
+        iva: 16,
+        total: 26
     }
     const client = {
         rfc: "CUAA961101R86",
@@ -175,10 +175,19 @@ async function createSale() {
         phone: 3112476998,
         email: "anelcruzag@ittepic.edu.mx"
     };
-    //const code = "Tortillas";
 
-    var saleCreated = await saleController.createSale(sale, client, Sale, Client);
-    console.log("Venta creado con éxito");
+    const product = {
+        code: "Tortillas",
+        pricebuy: 17,
+        saleprice: 22,
+        brand: "La Corita",
+        quantity: 20,
+        min: 5,
+        max: 40
+    };
+
+    var saleCreated = await saleController.createSale(sale, client, product, Sale, Client, Product);
+    console.log("Venta registrada con éxito");
     console.log(saleCreated);
 }
 

@@ -7,9 +7,9 @@ module.exports = new mongoose.Schema({
     date: {
         type: Date
     },
-    /*product: {
-        type: mongoose.Schema.Types.ObjectId, ref:'Product'
-    },*/
+    product: {
+        type: mongoose.Schema.Types.ObjectId, ref: 'Product'
+    },
     subtotal: {
         type: Number,
         required: true

@@ -1,24 +1,12 @@
 const clientController = require("./client.controller");
 const productController = require("./product.controller");
 
-async function createSale(sale, {rfc,name,domicile,phone,email}, Sale, Client) {
-    var client = {
-        rfc: rfc,
-        name: name,
-        domicile: domicile,
-        phone: phone,
-        email: email
-    };
-
-    //var product = {
-    //    code: code,
-    //}
-
+async function createSale(sale, client, product, Sale, Client, Product) {
     var clientCreated = await clientController.createClient(client, Client);
-    client["_id"] = clientCreated._id;
+    sale["client"] = clientCreated._id;
 
-    //var productCreated = await productController.createProduct(product, Product);
-    //product["code"] = productCreated._id;
+    var productCreated = await productController.createProduct(product, Product);
+    sale["product"] = { "_id": productCreated._id, "quantity": productCreated.quantity }
 
     var saleCreated = await Sale.create(sale)
         .then((data) => {
