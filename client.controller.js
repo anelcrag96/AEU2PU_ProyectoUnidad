@@ -1,90 +1,68 @@
-function createClient(client) {
-    create(client)
+async function createClient(client, Client) {
+    var clientCreated = await Client.create(client)
         .then((data) => {
-            console.log("Registrado con éxito");
-            console.log(data);
-            process.exit(0);
-        })
-        .catch((error) => {
-            console.log("Error");
-            process.exit(0);
-        });
-}
-
-function findClient(name) {
-    findClient(name)
-        .then((data) => {
-            console.log("Consulta realizada con éxito");
-            console.log(data);
-            process.exit(0);
-        })
-        .catch((error) => {
-            console.log("Error");
-            process.exit(0);
-        });
-}
-
-async function findByName(nameToFind, Client) {
-
-    var params = {
-        name: nameToFind
-    }
-
-    var clientFind = await Client.find(params)
-        //.populate("brand")
-        .then((data) => {
-            // console.log(data);
+            console.log("Cliente registrado con éxito");
             return data;
         })
-        .catch((err) => {
-            console.log("Not found");
-            return err;
+        .catch((error) => {
+            console.log("Error al registrar al cliente");
+            return error;
         });
-
-    return clientFind;
+    return clientCreated;
 }
 
-module.exports.findByName=findByName;
-
-function findIdClient(id) {
-    findById(id)
+async function findClient(Client) {
+    var clientFinded = await Client.find()
         .then((data) => {
-            console.log("Consulta por ID realizada con éxito");
-            console.log(data);
-            process.exit(0);
+            console.log("Clientes consultados con éxito");
+            return data;
         })
         .catch((error) => {
-            console.log("Error");
-            process.exit(0);
+            console.log("Error al consultar los clientes");
+            return error;
         });
+    return clientFinded;
 }
 
-function updateClient(id, phone) {
-    findOneAndUpdate({ _id: id }, { $set: { phone: phone } }, function (error, consult) {
-        if (error) {
-            console.log("Error");
-            process.exit(1);
-        }//if
-        console.log("Actualización realizada con éxito");
-        console.log(consult);
-        process.exit(0);
-    });
+async function findClientById(_id, Client) {
+    var clientByIdFinded = await Client.findById(_id)
+        .then((data) => {
+            console.log("Cliente consultado por ID con éxito");
+            return data;
+        })
+        .catch((error) => {
+            console.log("Error al consultar al cliente");
+            return error;
+        });
+    return clientByIdFinded;
 }
 
-function deleteClient(id) {
-    findOneAndDelete({ _id: id }, function (error, consult) {
+async function updateClient(_id, domicile, Client) {
+    var clientUpdated = await Client.findOneAndUpdate({ _id }, { $set: { domicile } }, function (error, consult) {
         if (error) {
-            console.log("Error");
-            process.exit(1);
+            console.log("Error al actualizar al cliente");
+            return error;
         }//if
-        console.log("Eliminación realizada con éxito");
-        console.log(consult);
-        process.exit(0);
+        console.log("Cliente actualizado con éxito");
+        return consult;
     });
+    return clientUpdated;
+}
+
+async function deleteClient(_id, Client) {
+    var clientDeleted = await Client.findOneAndDelete({ _id }, function (error, consult) {
+        if (error) {
+            console.log("Error al eliminar al cliente");
+            return error;
+        }//if
+        console.log("Cliente eliminado con éxito");
+        return consult;
+    });
+    return clientDeleted;
 }
 
 module.exports.createClient = createClient;
 module.exports.findClient = findClient;
-module.exports.findIdClient = findIdClient;
+module.exports.findClientById = findClientById;
 module.exports.updateClient = updateClient;
 module.exports.deleteClient = deleteClient;

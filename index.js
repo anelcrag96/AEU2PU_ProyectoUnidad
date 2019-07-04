@@ -121,37 +121,43 @@ async function createClient() {
         email: "anelcruzag@ittepic.edu.mx"
     }
 
-    var clientCreated = await clientController.createBrand(client, Client);
+    var clientCreated = await clientController.createClient(client, Client);
     console.log("Cliente registrado con éxito");
     console.log(clientCreated);
 }
 
 //CONSULTAR TODOS LOS CLIENTES
-async function findBrand() {
-    var brandFinded = await brandController.findBrand(Brand);
-    console.log("Marcas consultadas con éxito");
-    console.log(brandFinded);
+async function findClient() {
+    var clientFinded = await clientController.findClient(Client);
+    console.log("Clientes consultados con éxito");
+    console.log(clientFinded);
 }
 
 //CONSULTAR UN CLIENTE POR ID
-async function findBrandById(_id) {
-    var brandByIdFinded = await brandController.findBrandById(_id, Brand);
-    console.log("Marca consultada por ID con éxito");
-    console.log(brandByIdFinded);
+async function findClientById(_id) {
+    var clientByIdFinded = await clientController.findClientById(_id, Client);
+    console.log("Cliente consultado por ID con éxito");
+    console.log(clientByIdFinded);
 }
 
 //ACTUALIZAR UN CLIENTE
-async function updateBrand(_id, brand) {
-    var brandUpdated = await brandController.updateBrand(_id, brand, Brand);
-    console.log("Marca actualizada con éxito");
-    console.log(brandUpdated);
+async function updateClient(_id, domicile) {
+    var clientUpdated = await clientController.updateClient(_id, domicile, Client);
+    console.log("Cliente actualizado con éxito");
+    console.log(clientUpdated);
 }
 
 //ELIMINAR UN CLIENTE
-async function deleteBrand(_id) {
-    var brandDeleted = await brandController.deleteBrand(_id, Brand);
-    console.log("Marca eliminada con éxito");
-    console.log(brandDeleted);
+async function deleteClient(_id) {
+    var clientDeleted = await clientController.deleteClient(_id, Client);
+    console.log("Cliente eliminado con éxito");
+    console.log(clientDeleted);
 }
+
+createClient()
+//findClient()
+//findClientById('5d1d5e8fe5c8c52adc7a1abb')
+//updateClient('5d1d5e8fe5c8c52adc7a1abb','Santa Teresa del Nayar')
+//deleteClient('5d1d5f064d528a340c50799e')
 
 //-----------------------------------VENTA-----------------------------------
