@@ -14,7 +14,8 @@ module.exports = new mongoose.Schema({
         required: true
     },
     brand: {
-        type: mongoose.Schema.Types.ObjectId, ref: 'Brand'
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'Brand'
     },
     quantity: {
         type: Number,
