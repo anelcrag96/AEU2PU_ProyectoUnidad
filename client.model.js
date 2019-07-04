@@ -15,8 +15,7 @@ module.exports = new mongoose.Schema({
     },
     phone: {
         type: String,
-        require: true,
-        match: /^[0-9]{9}$/
+        require: true
     },
     email: {
         type: String,
