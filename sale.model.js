@@ -1,4 +1,4 @@
-/*const mongoose = require("mongoose");
+const mongoose = require("mongoose");
 
 esquemaVenta = mongoose.Schema({
     cliente: [{
@@ -26,4 +26,4 @@ esquemaVenta = mongoose.Schema({
     }
 });
 
-module.exports = esquemaVenta;*/
+module.exports = esquemaVenta;
