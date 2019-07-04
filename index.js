@@ -154,10 +154,48 @@ async function deleteClient(_id) {
     console.log(clientDeleted);
 }
 
-createClient()
+//createClient()
 //findClient()
 //findClientById('5d1d5e8fe5c8c52adc7a1abb')
 //updateClient('5d1d5e8fe5c8c52adc7a1abb','Santa Teresa del Nayar')
 //deleteClient('5d1d5f064d528a340c50799e')
 
 //-----------------------------------VENTA-----------------------------------
+async function createSale() {
+    var sale = {
+        date:"2019/07/03",
+        subtotal:22,
+        iva:16,
+        total:26
+    }
+    const client = {
+        rfc: "CUAA961101R86",
+        name: "Ángel Eliezer Cruz Aguilar",
+        domicile: "Prisciliano Romero #174A",
+        phone: 3112476998,
+        email: "anelcruzag@ittepic.edu.mx"
+    };
+    //const code = "Tortillas";
+
+    var saleCreated = await saleController.createSale(sale, client, Sale, Client);
+    console.log("Venta creado con éxito");
+    console.log(saleCreated);
+}
+
+//CONSULTAR TODAS LAS VENTAS
+async function findSale() {
+    var saleFinded = await saleController.findSale(Sale);
+    console.log("Consulta realizada con éxito");
+    console.log(saleFinded);
+}
+
+//CONSULTAR UNA VENTA POR ID
+async function findSaleById(_id) {
+    var saleByIdFinded = await saleController.findSaleById(_id, Sale);
+    console.log("Consulta realizada con éxito");
+    console.log(saleByIdFinded);
+}
+
+createSale()
+//findSale()
+//findSaleById('5d1d88df392e311c0c8e8c8c')
