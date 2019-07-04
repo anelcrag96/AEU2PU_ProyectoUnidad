@@ -1,30 +1,30 @@
 const mongoose = require("mongoose");
 
 module.exports = new mongoose.Schema({
-    codigo: {
+    code: {
         type: String,
         required: true
     },
-    pcompra: {
+    pricebuy: {
         type: Number,
         required: true
     },
-    pventa: {
+    saleprice: {
         type: Number,
         required: true
     },
     brand: {
-        type: mongoose.Schema.Types.ObjectId, ref:'Brand'
+        type: mongoose.Schema.Types.ObjectId, ref: 'Brand'
     },
-    cantidad: {
+    quantity: {
         type: Number,
         required: true
     },
-    minima: {
+    min: {
         type: Number,
         required: true
     },
-    maxima: {
+    max: {
         type: Number,
         required: true
     }
