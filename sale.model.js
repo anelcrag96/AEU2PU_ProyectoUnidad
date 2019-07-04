@@ -1,17 +1,16 @@
-/*const mongoose = require("mongoose");
+const mongoose = require("mongoose");
 
-esquemaVenta = mongoose.Schema({
-    cliente: [{
-        id: String,
-        required: true
-    }],
-    fecha: {
+module.exports=new mongoose.Schema({
+    client: {
+        type: mongoose.Schema.Types.ObjectId, ref:'Client'
+    },
+    date: {
         type: Date
     },
-    producto: [{
-        id: String,
-        cantidad: Number
-    }],
+    product: {
+        type: mongoose.Schema.Types.ObjectId, ref:'Product'
+        //type: mongoose.Schema.Types.cantidad, ref:'Product'
+    },
     subtotal: {
         type: Number,
         required: true
@@ -25,5 +24,3 @@ esquemaVenta = mongoose.Schema({
         required: true
     }
 });
-
-module.exports = esquemaVenta;*/
