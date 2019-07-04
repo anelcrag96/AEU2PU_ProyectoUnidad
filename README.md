@@ -7,4 +7,4 @@
 Proyecto Final de la Unidad No.2 de Aplicaciones Empresariales
 
 Esquemas del proyecto:
-https://github.com/anelcrag96/AEU2PU_ProyectoUnidad/blob/master/Proyecto%20Unidad%20No.2.png
+![alt tag](https://github.com/anelcrag96/AEU2PU_ProyectoUnidad/blob/master/Proyecto%20Unidad%20No.2.png)
