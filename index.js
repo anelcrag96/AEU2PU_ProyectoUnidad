@@ -179,6 +179,7 @@ function hoyFecha() {
     return dd + '/' + mm + '/' + yyyy;
 }
 
+//CREAR UNA NUEVA VENTA JUNTO CON CLIENTE Y PRODUCTO
 async function createSales() {
     var sale = {
         date: '',
@@ -213,6 +214,7 @@ async function createSales() {
     console.log(saleCreated);
 }
 
+//CREAR UNA VENTA PASANDO EL ID DEL CLIENTE Y EL PRODUCTO
 async function createSale() {
     var sale = {
         client: "5d1d5e8fe5c8c52adc7a1abb",
@@ -234,18 +236,18 @@ async function createSale() {
 //CONSULTAR TODAS LAS VENTAS
 async function findSale() {
     var saleFinded = await saleController.findSale(Sale);
-    console.log("Consulta realizada con éxito");
+    console.log("Ventas consultadas con éxito");
     console.log(saleFinded);
 }
 
 //CONSULTAR UNA VENTA POR ID
 async function findSaleById(_id) {
     var saleByIdFinded = await saleController.findSaleById(_id, Sale);
-    console.log("Consulta realizada con éxito");
+    console.log("Venta consultada por ID con éxito");
     console.log(saleByIdFinded);
 }
 
 //createSales()
 //createSale()
-findSale()
-//findSaleById('5d1e23c25a967d1e18adba30')
+//findSale()
+findSaleById('5d1e23c25a967d1e18adba30')
