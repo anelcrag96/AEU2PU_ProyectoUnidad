@@ -2,13 +2,15 @@ const mongoose = require("mongoose");
 
 module.exports = new mongoose.Schema({
     client: {
-        type: mongoose.Schema.Types.ObjectId, ref: 'Client'
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Client'
     },
     date: {
         type: Date
     },
     product: {
-        type: mongoose.Schema.Types.ObjectId, ref: 'Product'
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'Product'
     },
     subtotal: {
         type: Number,

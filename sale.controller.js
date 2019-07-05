@@ -2,11 +2,12 @@ const clientController = require("./client.controller");
 const productController = require("./product.controller");
 
 async function createSale(sale, client, product, Sale, Client, Product) {
+    
     var clientCreated = await clientController.createClient(client, Client);
     sale["client"] = clientCreated._id;
 
     var productCreated = await productController.createProduct(product, Product);
-    sale["product"] = { "_id": productCreated._id, "quantity": productCreated.quantity }
+    sale["product"] = { "_id": productCreated._id}
 
     var saleCreated = await Sale.create(sale)
         .then((data) => {
@@ -17,6 +18,19 @@ async function createSale(sale, client, product, Sale, Client, Product) {
             console.log("Error al registrar la venta");
             return error;
         });
+    return saleCreated;
+}
+
+async function createSale(sale, Sale){
+    var saleCreated = await Sale.create(sale)
+    .then((data)=> {
+        console.log("Venta registrada con exito");
+        return data;
+    })
+    .catch((error) => {
+        console.log("Error al registrar venta");
+        return error;
+    });
     return saleCreated;
 }
 
@@ -37,6 +51,7 @@ async function findSale(Sale) {
 async function findSaleById(_id, Sale) {
     var saleByIdFinded = await Sale.findById(_id)
         .populate("client")
+        .populate("product")
         .then((data) => {
             console.log("Venta consultada por ID con éxito");
             return data;
@@ -48,6 +63,7 @@ async function findSaleById(_id, Sale) {
     return saleByIdFinded;
 }
 
+module.exports.createSales = createSales;
 module.exports.createSale = createSale;
 module.exports.findSale = findSale;
 module.exports.findSaleById = findSaleById;
